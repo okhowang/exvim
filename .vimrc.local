@@ -1,2 +1,29 @@
 " This file will be loaded at the end of .vimrc.
 " This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
+call exproject#register_hotkey( 9  , 1, '<Leader>bj'       , ":EXProjectBuild<CR>"                                      , 'Rebuild project tree.' )
+set fileencodings=ucs-bom,utf-8-bom,utf-8,cp936,big5,gb18030,ucs,euc-jp,euc-kr,latin1
+nnoremap <silent> <F9> :TlistToggle<CR>
+
+" set foldenable
+set foldmethod=syntax
+" set foldcolumn=0
+" setlocal foldlevel=1        " 设置折叠层数为
+" set foldlevelstart=99       " 打开文件是默认不折叠代码
+"set foldclose=all          " 设置为自动关闭折叠                
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+map <Leader>bn :MBEbn
+map <Leader>bp :MBEbp
+map <Leader>bf :MBEbf
+map <Leader>bb :MBEbb
+map <Leader>bd :MBEbd
+map <Leader>bw :MBEbw
+map <Leader>bun :MBEbun
+
+set tags+=~/include/tags
+set tags+=~/system_include/tags
+function s:load_stsmem_tags()
+    set tags+=~/include/tags
+    set tags+=~/system_include/tags
+endfunction
+command! LoadSystemTags call s:load_stsmem_tags()

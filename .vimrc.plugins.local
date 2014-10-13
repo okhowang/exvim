@@ -4,3 +4,21 @@
 
 " Add your customized plugins:
 " Example: Plugin 'foo/bar/foobar'
+Plugin 'vim-scripts/a.vim'
+
+Plugin 'whatot/gtags-cscope.vim'
+let Gtags_Auto_Map = 1
+let Gtags_Auto_Update = 1
+let Gtags_No_Auto_Jump = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Keep_Alive = 1
+let GtagsCscope_Absolute_Path = 1
+
+Plugin 'vim-scripts/OmniCppComplete'
+let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+Plugin 'mbbill/echofunc'
