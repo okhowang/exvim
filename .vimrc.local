@@ -20,10 +20,4 @@ map <Leader>bd :MBEbd
 map <Leader>bw :MBEbw
 map <Leader>bun :MBEbun
 
-set tags+=~/include/tags
-set tags+=~/system_include/tags
-function s:load_stsmem_tags()
-    set tags+=~/include/tags
-    set tags+=~/system_include/tags
-endfunction
-command! LoadSystemTags call s:load_stsmem_tags()
+let g:Exconfig_Global_Tags='~/include/tags,~/system_include/tags'
