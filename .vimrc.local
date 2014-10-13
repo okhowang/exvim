@@ -20,4 +20,5 @@ map <Leader>bd :MBEbd
 map <Leader>bw :MBEbw
 map <Leader>bun :MBEbun
 
+set tags+=~/include/tags,~/system_include/tags
 let g:Exconfig_Global_Tags='~/include/tags,~/system_include/tags'
