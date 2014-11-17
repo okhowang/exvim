@@ -202,7 +202,7 @@ let g:miniBufExplTabWrap = 1
 
 " ex-autocomplpop: invoke when you input text
 " ---------------------------------------------------
-Plugin 'exvim/ex-autocomplpop'
+" Plugin 'exvim/ex-autocomplpop'
 
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
 " ---------------------------------------------------
@@ -338,7 +338,11 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " DISABLE: use ex-autocomplpop instead
 " " YouCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_min_num_of_chars_for_completion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
 " " ---------------------------------------------------
 
 " TODO: choose a snippet plugin

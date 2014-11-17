@@ -1,9 +1,16 @@
 " This file will be loaded at the end of .vimrc.
 " This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
 call exproject#register_hotkey( 9  , 1, '<Leader>bj'       , ":EXProjectBuild<CR>"                                      , 'Rebuild project tree.' )
+call exproject#register_hotkey( 5  , 1, '<Leader-CR>'          , ":call exproject#confirm_select('shift')<CR>"              , 'File: Split and open it. Folder: Open the folder in os file browser.' )
 call exproject#register_hotkey( 5  , 1, '<Leader><CR>'          , ":call exproject#confirm_select('shift')<CR>"              , 'File: Split and open it. Folder: Open the folder in os file browser.' )
-set fileencodings=ucs-bom,utf-8-bom,utf-8,cp936,big5,gb18030,ucs,euc-jp,euc-kr,latin1
+set fileencodings=ucs-bom,utf-8-bom,utf-8,cp936,gbk,big5,gb18030,ucs,euc-jp,euc-kr,latin1
+set wrap
+set linebreak
+set nolist
+
 nnoremap <silent> <F9> :TlistToggle<CR>
+
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " set foldenable
 set foldmethod=syntax
@@ -22,6 +29,28 @@ map <Leader>bw :MBEbw
 map <Leader>bun :MBEbun
 
 set tags+=~/include/tags,~/system_include/tags
-let g:Exconfig_Global_Tags='~/include/tags,~/system_include/tags'
+let g:Exconfig_Global_Tags='/home/okhowang/include/tags,/home/okhowang/system_include/tags'
 
 set grepprg=grep
+
+nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
+
+" set ai
+" set si
+" set cin
+" set cinoptions=:0,g0,t0,l1,Ls,W4,+8,N0
+" function! IndentNamespace()
+    " let l:cline_num = line('.')
+    " let l:pline_num = prevnonblank(l:cline_num - 1)
+    " let l:pline = getline(l:pline_num)
+    " let l:retv = cindent('.')
+    " while l:pline =~# '\(^\s*{\s*\|^\s*//\|^\s*/\*\|\*/\s*$\)'
+        " let l:pline_num = prevnonblank(l:pline_num - 1)
+        " let l:pline = getline(l:pline_num)
+    " endwhile
+    " if l:pline =~# '^\s*namespace.*'
+        " let l:retv = 0
+    " endif
+    " return l:retv
+" endfunction
+" setlocal indentexpr=IndentNamespace()
