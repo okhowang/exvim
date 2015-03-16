@@ -24,7 +24,7 @@ map <Leader>bn :MBEbn
 map <Leader>bp :MBEbp
 map <Leader>bf :MBEbf
 map <Leader>bb :MBEbb
-map <Leader>bd :MBEbd
+" map <Leader>bd :MBEbd
 map <Leader>bw :MBEbw
 map <Leader>bun :MBEbun
 
@@ -54,3 +54,7 @@ nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
     " return l:retv
 " endfunction
 " setlocal indentexpr=IndentNamespace()
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+" inoremap < <><ESC>i
