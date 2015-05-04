@@ -17,10 +17,10 @@ let GtagsCscope_Absolute_Path = 1
 " cs add ~/include/GTAGS ~/include
 " cs add ~/system_include/GTAGS ~/system_include
 
-Plugin 'vim-scripts/OmniCppComplete'
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" Plugin 'vim-scripts/OmniCppComplete'
+" let OmniCpp_ShowPrototypeInAbbr = 1
+" let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-Plugin 'mbbill/echofunc'
+" Plugin 'mbbill/echofunc'
