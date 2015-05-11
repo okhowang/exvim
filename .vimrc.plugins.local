@@ -6,7 +6,7 @@
 " Example: Plugin 'foo/bar/foobar'
 Plugin 'vim-scripts/a.vim'
 
-Plugin 'whatot/gtags-cscope.vim'
+" Plugin 'whatot/gtags-cscope.vim'
 let Gtags_Auto_Map = 1
 let Gtags_Auto_Update = 1
 let Gtags_No_Auto_Jump = 1
@@ -14,6 +14,8 @@ let GtagsCscope_Auto_Map = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Keep_Alive = 1
 let GtagsCscope_Absolute_Path = 1
+source $HOME/local/global-6.4/share/gtags/gtags.vim
+source $HOME/local/global-6.4/share/gtags/gtags-cscope.vim
 " cs add ~/include/GTAGS ~/include
 " cs add ~/system_include/GTAGS ~/system_include
 
@@ -24,3 +26,12 @@ let GtagsCscope_Absolute_Path = 1
 " autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Plugin 'mbbill/echofunc'
+Plugin 'mbbill/fencview'
+" let g:fencview_auto_patterns = '*.txt,*.htm{l\=},*.c,*.cpp,*.h,*.hpp'
+" let g:fencview_autodetect = 1
+" Plugin 'Valloric/ListToggle'
+" let g:lt_location_list_toggle_map = '<leader>l'
+" let g:lt_quickfix_list_toggle_map = '<leader>q'
+Plugin 'yonchu/accelerated-smooth-scroll'
+let g:ac_smooth_scroll_du_sleep_time_msec = 5
+let g:ac_smooth_scroll_fb_sleep_time_msec = 5
