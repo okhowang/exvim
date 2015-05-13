@@ -97,98 +97,100 @@ nnoremap <unique> <leader>hv :EXHierarchyCWord<CR>
 
 " ex-taglist: invoke by <F4>
 " ---------------------------------------------------
-Plugin 'exvim/ex-taglist'
+" Plugin 'exvim/ex-taglist'
 
 " F4:  Switch on/off TagList
-nnoremap <unique> <silent> <F4> :TlistToggle<CR>
+" nnoremap <unique> <silent> <F4> :TlistToggle<CR>
 
 "let Tlist_Ctags_Cmd = $VIM.'/vimfiles/ctags.exe' " location of ctags tool
-let Tlist_Show_One_File = 1 " Displaying tags for only one file~
-let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
-let Tlist_Use_Right_Window = 1 " split to the right side of the screen
-let Tlist_Sort_Type = "order" " sort by order or name
-let Tlist_Display_Prototype = 0 " do not show prototypes and not tags in the taglist window.
-let Tlist_Compart_Format = 1 " Remove extra information and blank lines from the taglist window.
-let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
-let Tlist_Display_Tag_Scope = 1 " Show tag scope next to the tag name.
-let Tlist_Close_On_Select = 0 " Close the taglist window when a file or tag is selected.
-let Tlist_BackToEditBuffer = 0 " If no close on select, let the user choose back to edit buffer or not
-let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
-let Tlist_WinWidth = 40
-let Tlist_Compact_Format = 1 " do not show help
+" let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+" let Tlist_Show_One_File = 1 " Displaying tags for only one file~
+" let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
+" let Tlist_Use_Right_Window = 1 " split to the right side of the screen
+" let Tlist_Sort_Type = "name" " sort by order or name
+" let Tlist_Display_Prototype = 0 " do not show prototypes and not tags in the taglist window.
+" let Tlist_Compart_Format = 1 " Remove extra information and blank lines from the taglist window.
+" let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
+" let Tlist_Display_Tag_Scope = 1 " Show tag scope next to the tag name.
+" let Tlist_Close_On_Select = 0 " Close the taglist window when a file or tag is selected.
+" let Tlist_BackToEditBuffer = 0 " If no close on select, let the user choose back to edit buffer or not
+" let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
+" let Tlist_WinWidth = 40
+" let Tlist_Compact_Format = 1 " do not show help
 " let Tlist_Ctags_Cmd = 'ctags --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++'
 " very slow, so I disable this
 " let Tlist_Process_File_Always = 1 " To use the :TlistShowTag and the :TlistShowPrototype commands without the taglist window and the taglist menu, you should set this variable to 1.
 ":TlistShowPrototype [filename] [linenumber]
 
 " add javascript language
-let tlist_javascript_settings = 'javascript;v:global variable:0:0;c:class;p:property;m:method;f:function;r:object'
+" let tlist_javascript_settings = 'javascript;v:global variable:0:0;c:class;p:property;m:method;f:function;r:object'
 " add hlsl shader language
-let tlist_hlsl_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;v:variable;f:function'
+" let tlist_hlsl_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;v:variable;f:function'
 " add actionscript language
-let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
+" let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
 
 " DISABLE: use tlist instead
 " " exvim/ex-tagbar: invoke by <F4>
 " " ---------------------------------------------------
-" Plugin 'exvim/ex-tagbar'
+Plugin 'exvim/ex-tagbar'
 
 " nnoremap <unique> <silent> <F4> :TagbarToggle<CR>
 
-" let g:tagbar_sort = 0
-" let g:tagbar_map_preview = '<CR>'
-" if has('gui_running')
-"     let g:tagbar_map_close = '<Esc>'
-" else
-"     let g:tagbar_map_close = '<leader><Esc>'
-" endif
-" let g:tagbar_map_zoomwin = '<Space>'
-" let g:tagbar_zoomwidth = 80
-" let g:tagbar_autofocus = 1
-" let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
+let g:tagbar_sort = 0
+let g:tagbar_map_preview = '<CR>'
+if has('gui_running')
+    let g:tagbar_map_close = '<Esc>'
+else
+    let g:tagbar_map_close = '<leader><Esc>'
+endif
+let g:tagbar_map_zoomwin = '<Space>'
+let g:tagbar_zoomwidth = 80
+let g:tagbar_autofocus = 1
+let g:tagbar_iconchars = ['+', '-']
 
-" " use command ':TagbarGetTypeConfig lang' change your settings
-" let g:tagbar_type_javascript = {
-"     \ 'ctagsbin': 'ctags',
-"     \ 'kinds' : [
-"         \ 'v:global variables:0:0',
-"         \ 'c:classes',
-"         \ 'p:properties:0:0',
-"         \ 'm:methods',
-"         \ 'f:functions',
-"         \ 'r:object',
-"     \ ],
-" \ }
-" let g:tagbar_type_c = {
-"     \ 'kinds' : [
-"         \ 'd:macros:0:0',
-"         \ 'p:prototypes:0:0',
-"         \ 'g:enums',
-"         \ 'e:enumerators:0:0',
-"         \ 't:typedefs:0:0',
-"         \ 's:structs',
-"         \ 'u:unions',
-"         \ 'm:members:0:0',
-"         \ 'v:variables:0:0',
-"         \ 'f:functions',
-"     \ ],
-" \ }
-" let g:tagbar_type_cpp = {
-"     \ 'kinds' : [
-"         \ 'd:macros:0:0',
-"         \ 'p:prototypes:0:0',
-"         \ 'g:enums',
-"         \ 'e:enumerators:0:0',
-"         \ 't:typedefs:0:0',
-"         \ 'n:namespaces',
-"         \ 'c:classes',
-"         \ 's:structs',
-"         \ 'u:unions',
-"         \ 'f:functions',
-"         \ 'm:members:0:0',
-"         \ 'v:variables:0:0',
-"     \ ],
-" \ }
+" use command ':TagbarGetTypeConfig lang' change your settings
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin': 'ctags',
+    \ 'kinds' : [
+        \ 'v:global variables:0:0',
+        \ 'c:classes',
+        \ 'p:properties:0:0',
+        \ 'm:methods',
+        \ 'f:functions',
+        \ 'r:object',
+    \ ],
+\ }
+let g:tagbar_type_c = {
+    \ 'kinds' : [
+        \ 'd:macros:0:0',
+        \ 'p:prototypes:0:0',
+        \ 'g:enums',
+        \ 'e:enumerators:0:0',
+        \ 't:typedefs:0:0',
+        \ 's:structs',
+        \ 'u:unions',
+        \ 'm:members:0:0',
+        \ 'v:variables:0:0',
+        \ 'f:functions',
+    \ ],
+\ }
+let g:tagbar_type_cpp = {
+    \ 'kinds' : [
+        \ 'd:macros:0:0',
+        \ 'p:prototypes:0:0',
+        \ 'g:enums',
+        \ 'e:enumerators:0:0',
+        \ 't:typedefs:0:0',
+        \ 'n:namespaces',
+        \ 'c:classes',
+        \ 's:structs',
+        \ 'u:unions',
+        \ 'f:functions',
+        \ 'm:members:0:0',
+        \ 'v:variables:0:0',
+    \ ],
+\ }
 
 " DISABLE: minibufexpl makes Vim editing slow when there are too many buffers opened
 "          if you don't mind, and love this plugin, uncomment the script below
@@ -249,15 +251,15 @@ Plugin 'altercation/vim-colors-solarized'
 "          to enable it
 " vim-airline
 " ---------------------------------------------------
-" Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " if has('gui_running')
-"     let g:airline_powerline_fonts = 1
+    let g:airline_powerline_fonts = 1
 " else
-"     let g:airline_powerline_fonts = 0
+    " let g:airline_powerline_fonts = 0
 " endif
 
-" let g:airline#extensions#tabline#enabled = 0 " NOTE: When you open lots of buffers and typing text, it is so slow.
+let g:airline#extensions#tabline#enabled = 1 " NOTE: When you open lots of buffers and typing text, it is so slow.
 " let g:airline#extensions#tabline#show_buffers = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:airline#extensions#tabline#fnamemod = ':t'
@@ -269,6 +271,7 @@ Plugin 'altercation/vim-colors-solarized'
 
 " ctrlp: invoke by <ctrl-p>
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_map = '<leader>P'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_follow_symlinks = 2
@@ -315,7 +318,14 @@ Plugin 'scrooloose/syntastic'
 
 " this will make html file by Angular.js ignore errors
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_check_on_open = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " DISABLE: use ex-autocomplpop instead
 " " neocomplcache: invoke when you insert words
@@ -349,10 +359,14 @@ let g:syntastic_check_on_open = 1
 " DISABLE: use ex-autocomplpop instead
 " " YouCompleteMe
 " Plugin 'Valloric/YouCompleteMe'
-let g:ycm_min_num_of_chars_for_completion = 1
+" let g:ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_autoclose_preview_window_after_completion = 1
 " let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_confirm_extra_conf = 0
+" let g:ycm_confirm_extra_conf = 0
+" let g:syntastic_warning_symbol = '??'
+" let g:ycm_always_populate_location_list = 1
+" let g:ycm_add_preview_to_completeopt = 1
+" nnoremap <F10> :YcmForceCompileAndDiagnostics<CR>
 " " ---------------------------------------------------
 
 " TODO: choose a snippet plugin

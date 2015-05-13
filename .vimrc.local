@@ -8,7 +8,7 @@ set wrap
 set linebreak
 set nolist
 
-nnoremap <silent> <F9> :TlistToggle<CR>
+nnoremap <silent> <F9> :TagbarToggle<CR>
 
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
@@ -58,3 +58,5 @@ inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 " inoremap < <><ESC>i
+map <S-X> :lopen<CR>
+map <S-C> :lclose<CR>
