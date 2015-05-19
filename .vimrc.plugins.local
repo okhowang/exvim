@@ -35,3 +35,27 @@ Plugin 'mbbill/fencview'
 Plugin 'yonchu/accelerated-smooth-scroll'
 let g:ac_smooth_scroll_du_sleep_time_msec = 5
 let g:ac_smooth_scroll_fb_sleep_time_msec = 5
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_realtime = 1
+" Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_exit_from_visual_mode = 0
+" let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_start_key='<C-k>'
+let g:multi_cursor_next_key='<C-j>'
+let g:multi_cursor_prev_key='<C-k>'
+let g:multi_cursor_skip_key='<S-x>'
+let g:multi_cursor_quit_key='<Esc>'
+Plugin 'Raimondi/delimitMate'
+" Plugin 'Yggdroot/indentLine'
+Plugin 'tacahiroy/ctrlp-funky'
+nnoremap <S-F12> :CtrlPFunky<CR>
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'rking/ag.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
