@@ -31,7 +31,7 @@ map <Leader>bun :MBEbun
 set tags+=~/include/tags,~/system_include/tags
 let g:Exconfig_Global_Tags='/home/okhowang/include/tags,/home/okhowang/system_include/tags'
 
-set grepprg=grep
+set grepprg=ag\ --nogroup\ --nocolor
 
 nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
 
@@ -54,9 +54,9 @@ nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
     " return l:retv
 " endfunction
 " setlocal indentexpr=IndentNamespace()
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-inoremap { {}<ESC>i
+" inoremap ( ()<ESC>i
+" inoremap [ []<ESC>i
+" inoremap { {}<ESC>i
 " inoremap < <><ESC>i
-map <S-X> :lopen<CR>
-map <S-C> :lclose<CR>
+" map <S-X> :lopen<CR>
+" map <S-C> :lclose<CR>
