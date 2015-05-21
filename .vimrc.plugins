@@ -207,7 +207,7 @@ let g:tagbar_type_cpp = {
 
 " ex-autocomplpop: invoke when you input text
 " ---------------------------------------------------
-Plugin 'exvim/ex-autocomplpop'
+" Plugin 'exvim/ex-autocomplpop'
 
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
 " ---------------------------------------------------
@@ -364,18 +364,18 @@ set statusline+=%*
 
 " DISABLE: use ex-autocomplpop instead
 " " YouCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
-" let g:ycm_min_num_of_chars_for_completion = 1
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_autoclose_preview_window_after_completion = 1
 " let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_confirm_extra_conf = 0
-" let g:syntastic_warning_symbol = '??'
-" let g:ycm_always_populate_location_list = 0
-" let g:ycm_add_preview_to_completeopt = 1
-" let g:ycm_max_diagnostics_to_display = 100
-" let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-" nnoremap <F10> :YcmForceCompileAndDiagnostics<CR>
+let g:ycm_confirm_extra_conf = 0
+let g:syntastic_warning_symbol = '??'
+let g:ycm_always_populate_location_list = 0
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_max_diagnostics_to_display = 100
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+nnoremap <F10> :YcmForceCompileAndDiagnostics<CR>
 " " ---------------------------------------------------
 
 " TODO: choose a snippet plugin
