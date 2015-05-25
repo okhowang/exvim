@@ -279,19 +279,19 @@ set	cinoptions=>s,e0,n0,f0,{0,}0,^0,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,0,(0,us,
 " set cinkeys=0{,0},0),:,!^F,o,O,e
 
 " official diff settings
-set diffexpr=g:MyDiff()
-function! g:MyDiff()
-    let opt = '-a --binary -w '
-    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-    let arg1 = v:fname_in
-    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-    let arg2 = v:fname_new
-    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-    let arg3 = v:fname_out
-    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-    silent execute '!' .  'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-endfunction
+" set diffexpr=g:MyDiff()
+" function! g:MyDiff()
+    " let opt = '-a --binary -w '
+    " if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    " if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    " let arg1 = v:fname_in
+    " if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+    " let arg2 = v:fname_new
+    " if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+    " let arg3 = v:fname_out
+    " if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+    " silent execute '!' .  'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+" endfunction
 
 set cindent shiftwidth=4 " set cindent on to autoinent when editing c/c++ file, with 4 shift width
 set tabstop=4 " set tabstop to 4 characters

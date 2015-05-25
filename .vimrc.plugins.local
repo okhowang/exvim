@@ -33,8 +33,8 @@ Plugin 'mbbill/fencview'
 " let g:lt_location_list_toggle_map = '<leader>l'
 " let g:lt_quickfix_list_toggle_map = '<leader>q'
 Plugin 'yonchu/accelerated-smooth-scroll'
-let g:ac_smooth_scroll_du_sleep_time_msec = 5
-let g:ac_smooth_scroll_fb_sleep_time_msec = 5
+let g:ac_smooth_scroll_du_sleep_time_msec = 1
+let g:ac_smooth_scroll_fb_sleep_time_msec = 1
 Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_realtime = 1
 " Plugin 'dyng/ctrlsf.vim'
@@ -59,3 +59,5 @@ Plugin 'rking/ag.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'chrisbra/vim-diff-enhanced'
+let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
