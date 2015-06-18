@@ -307,7 +307,7 @@ set nf=
 " ------------------------------------------------------------------
 
 set foldmethod=marker foldmarker={,} foldlevel=9999
-set diffopt=filler,context:9999
+set diffopt=filler,context:9999,iwhite
 
 " ------------------------------------------------------------------
 " Desc: Search

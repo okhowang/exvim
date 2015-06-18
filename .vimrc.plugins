@@ -5,7 +5,7 @@
 " com! -nargs=+ Bundle
 
 " man.vim: invoked by :Man {name}
-source $VIMRUNTIME/ftplugin/man.vim
+" source $VIMRUNTIME/ftplugin/man.vim
 
 " let Vundle manage Vundle, required
 " ---------------------------------------------------

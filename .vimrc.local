@@ -60,3 +60,5 @@ nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
 " inoremap < <><ESC>i
 " map <S-X> :lopen<CR>
 " map <S-C> :lclose<CR>
+set cursorline
+set cursorcolumn
