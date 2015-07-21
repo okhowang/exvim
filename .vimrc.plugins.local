@@ -14,8 +14,8 @@ let GtagsCscope_Auto_Map = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Keep_Alive = 1
 let GtagsCscope_Absolute_Path = 1
-source $HOME/local/global-6.4/share/gtags/gtags.vim
-source $HOME/local/global-6.4/share/gtags/gtags-cscope.vim
+source $HOME/local/global-6.5/share/gtags/gtags.vim
+source $HOME/local/global-6.5/share/gtags/gtags-cscope.vim
 " cs add ~/include/GTAGS ~/include
 " cs add ~/system_include/GTAGS ~/system_include
 
@@ -32,11 +32,11 @@ Plugin 'mbbill/fencview'
 " Plugin 'Valloric/ListToggle'
 " let g:lt_location_list_toggle_map = '<leader>l'
 " let g:lt_quickfix_list_toggle_map = '<leader>q'
-Plugin 'yonchu/accelerated-smooth-scroll'
+" Plugin 'yonchu/accelerated-smooth-scroll'
 let g:ac_smooth_scroll_du_sleep_time_msec = 1
 let g:ac_smooth_scroll_fb_sleep_time_msec = 1
-Plugin 'airblade/vim-gitgutter'
-let g:gitgutter_realtime = 1
+" Plugin 'airblade/vim-gitgutter'
+" let g:gitgutter_realtime = 1
 " Plugin 'dyng/ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
 " let g:multi_cursor_exit_from_visual_mode = 0
@@ -72,3 +72,5 @@ nmap     <leader>fp <Plug>CtrlSFPwordPath
 nnoremap <leader>fo :CtrlSFOpen<CR>
 nnoremap <leader>ft :CtrlSFToggle<CR>
 inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
+Bundle 'mhinz/vim-signify'
+let g:signify_vcs_list =  [ 'svn', 'git' ]
