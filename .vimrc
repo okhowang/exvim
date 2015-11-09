@@ -293,8 +293,8 @@ set	cinoptions=>s,e0,n0,f0,{0,}0,^0,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,0,(0,us,
     " silent execute '!' .  'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
 " endfunction
 
-set cindent shiftwidth=4 " set cindent on to autoinent when editing c/c++ file, with 4 shift width
-set tabstop=4 " set tabstop to 4 characters
+set cindent shiftwidth=2 " set cindent on to autoinent when editing c/c++ file, with 4 shift width
+set tabstop=2 " set tabstop to 4 characters
 set expandtab " set expandtab on, the tab will be change to space automaticaly
 set ve=block " in visual block mode, cursor can be positioned where there is no actual character
 
