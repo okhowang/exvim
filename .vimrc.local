@@ -1,8 +1,8 @@
 " This file will be loaded at the end of .vimrc.
 " This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
-call exproject#register_hotkey( 9  , 1, '<Leader>bj'       , ":EXProjectBuild<CR>"                                      , 'Rebuild project tree.' )
-call exproject#register_hotkey( 5  , 1, '<Leader-CR>'          , ":call exproject#confirm_select('shift')<CR>"              , 'File: Split and open it. Folder: Open the folder in os file browser.' )
-call exproject#register_hotkey( 5  , 1, '<Leader><CR>'          , ":call exproject#confirm_select('shift')<CR>"              , 'File: Split and open it. Folder: Open the folder in os file browser.' )
+" call exproject#register_hotkey( 9  , 1, '<Leader>bj'       , ":EXProjectBuild<CR>"                                      , 'Rebuild project tree.' )
+" call exproject#register_hotkey( 5  , 1, '<Leader-CR>'          , ":call exproject#confirm_select('shift')<CR>"              , 'File: Split and open it. Folder: Open the folder in os file browser.' )
+" call exproject#register_hotkey( 5  , 1, '<Leader><CR>'          , ":call exproject#confirm_select('shift')<CR>"              , 'File: Split and open it. Folder: Open the folder in os file browser.' )
 set fileencodings=ucs-bom,utf-8-bom,utf-8,cp936,gbk,big5,gb18030,ucs,euc-jp,euc-kr,latin1
 set wrap
 set linebreak

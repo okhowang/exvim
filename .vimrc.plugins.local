@@ -74,3 +74,4 @@ nnoremap <leader>ft :CtrlSFToggle<CR>
 inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
 Bundle 'mhinz/vim-signify'
 let g:signify_vcs_list =  [ 'svn', 'git' ]
+Plugin 'vim-scripts/vcscommand.vim'
