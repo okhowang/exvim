@@ -37,7 +37,6 @@ let g:ac_smooth_scroll_du_sleep_time_msec = 1
 let g:ac_smooth_scroll_fb_sleep_time_msec = 1
 " Plugin 'airblade/vim-gitgutter'
 " let g:gitgutter_realtime = 1
-" Plugin 'dyng/ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
 " let g:multi_cursor_exit_from_visual_mode = 0
 " let g:multi_cursor_exit_from_insert_mode = 0
@@ -45,12 +44,12 @@ let g:multi_cursor_use_default_mapping=0
 " let g:multi_cursor_start_key='<C-k>'
 let g:multi_cursor_next_key='<C-j>'
 let g:multi_cursor_prev_key='<C-k>'
-let g:multi_cursor_skip_key='<S-x>'
+let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 Plugin 'Raimondi/delimitMate'
 " Plugin 'Yggdroot/indentLine'
 Plugin 'tacahiroy/ctrlp-funky'
-nnoremap <S-F12> :CtrlPFunky<CR>
+nnoremap <F11> :CtrlPFunky<CR>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 Plugin 'Shougo/vimproc.vim'
@@ -75,3 +74,4 @@ inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
 Bundle 'mhinz/vim-signify'
 let g:signify_vcs_list =  [ 'svn', 'git' ]
 Plugin 'vim-scripts/vcscommand.vim'
+Plugin 'tpope/vim-repeat.git'
