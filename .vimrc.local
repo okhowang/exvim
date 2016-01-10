@@ -62,3 +62,12 @@ nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
 " map <S-C> :lclose<CR>
 set cursorline
 set cursorcolumn
+let g:clang_format_fallback_style="webkit"
+function FormatFile()
+  let l:lines="all"
+  pyf ~/local/llvm-3.7.1/share/clang/clang-format.py
+endfunction
+map <leader>cff :call FormatFile()<cr>
+map <leader>cfl :pyf ~/local/llvm-3.7.1/share/clang/clang-format.py<cr>
+set sw=4
+set tabstop=4

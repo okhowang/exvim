@@ -313,8 +313,8 @@ let g:NERDRemoveExtraSpaces = 1
 let g:NERDCustomDelimiters = {
             \ 'vimentry': { 'left': '--' },
             \ }
-map <unique> <F11> <Plug>NERDCommenterAlignBoth
-map <unique> <C-F11> <Plug>NERDCommenterUncomment
+" map <unique> <F11> <Plug>NERDCommenterAlignBoth
+" map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
 " syntastic: invoke when you save file and have syntac-checker
 " ---------------------------------------------------
