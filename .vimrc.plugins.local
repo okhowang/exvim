@@ -75,3 +75,4 @@ Bundle 'mhinz/vim-signify'
 let g:signify_vcs_list =  [ 'svn', 'git' ]
 Plugin 'vim-scripts/vcscommand.vim'
 Plugin 'tpope/vim-repeat.git'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
