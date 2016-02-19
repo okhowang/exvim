@@ -71,3 +71,4 @@ map <leader>cff :call FormatFile()<cr>
 map <leader>cfl :pyf ~/local/llvm-3.7.1/share/clang/clang-format.py<cr>
 set sw=4
 set tabstop=4
+au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
