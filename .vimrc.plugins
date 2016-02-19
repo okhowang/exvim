@@ -29,7 +29,7 @@ nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
 nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 nnoremap <unique> <silent> <Leader><Tab> :EXsw<CR>
-nmap <unique> <silent> <Leader><Esc> :EXgp<CR><ESC>
+" nmap <unique> <silent> <Leader><Esc> :EXgp<CR><ESC>
 
 " ex-aftercolor
 " ---------------------------------------------------
@@ -132,65 +132,65 @@ nnoremap <unique> <leader>hv :EXHierarchyCWord<CR>
 " DISABLE: use tlist instead
 " " exvim/ex-tagbar: invoke by <F4>
 " " ---------------------------------------------------
-Plugin 'exvim/ex-tagbar'
+Plugin 'majutsushi/tagbar'
 
 " nnoremap <unique> <silent> <F4> :TagbarToggle<CR>
 
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
-let g:tagbar_sort = 0
-let g:tagbar_map_preview = '<CR>'
-if has('gui_running')
-    let g:tagbar_map_close = '<Esc>'
-else
-    let g:tagbar_map_close = '<leader><Esc>'
-endif
-let g:tagbar_map_zoomwin = '<Space>'
-let g:tagbar_zoomwidth = 80
-let g:tagbar_autofocus = 1
-let g:tagbar_iconchars = ['+', '-']
+" let g:tagbar_ctags_bin = '/usr/bin/ctags'
+" let g:tagbar_sort = 0
+" let g:tagbar_map_preview = '<CR>'
+" if has('gui_running')
+    " let g:tagbar_map_close = '<Esc>'
+" else
+    " let g:tagbar_map_close = '<leader><Esc>'
+" endif
+" let g:tagbar_map_zoomwin = '<Space>'
+" let g:tagbar_zoomwidth = 80
+" let g:tagbar_autofocus = 1
+" let g:tagbar_iconchars = ['+', '-']
 
 " use command ':TagbarGetTypeConfig lang' change your settings
-let g:tagbar_type_javascript = {
-    \ 'ctagsbin': 'ctags',
-    \ 'kinds' : [
-        \ 'v:global variables:0:0',
-        \ 'c:classes',
-        \ 'p:properties:0:0',
-        \ 'm:methods',
-        \ 'f:functions',
-        \ 'r:object',
-    \ ],
-\ }
-let g:tagbar_type_c = {
-    \ 'kinds' : [
-        \ 'd:macros:0:0',
-        \ 'p:prototypes:0:0',
-        \ 'g:enums',
-        \ 'e:enumerators:0:0',
-        \ 't:typedefs:0:0',
-        \ 's:structs',
-        \ 'u:unions',
-        \ 'm:members:0:0',
-        \ 'v:variables:0:0',
-        \ 'f:functions',
-    \ ],
-\ }
-let g:tagbar_type_cpp = {
-    \ 'kinds' : [
-        \ 'd:macros:0:0',
-        \ 'p:prototypes:0:0',
-        \ 'g:enums',
-        \ 'e:enumerators:0:0',
-        \ 't:typedefs:0:0',
-        \ 'n:namespaces',
-        \ 'c:classes',
-        \ 's:structs',
-        \ 'u:unions',
-        \ 'f:functions',
-        \ 'm:members:0:0',
-        \ 'v:variables:0:0',
-    \ ],
-\ }
+" let g:tagbar_type_javascript = {
+    " \ 'ctagsbin': 'ctags',
+    " \ 'kinds' : [
+        " \ 'v:global variables:0:0',
+        " \ 'c:classes',
+        " \ 'p:properties:0:0',
+        " \ 'm:methods',
+        " \ 'f:functions',
+        " \ 'r:object',
+    " \ ],
+" \ }
+" let g:tagbar_type_c = {
+    " \ 'kinds' : [
+        " \ 'd:macros:0:0',
+        " \ 'p:prototypes:0:0',
+        " \ 'g:enums',
+        " \ 'e:enumerators:0:0',
+        " \ 't:typedefs:0:0',
+        " \ 's:structs',
+        " \ 'u:unions',
+        " \ 'm:members:0:0',
+        " \ 'v:variables:0:0',
+        " \ 'f:functions',
+    " \ ],
+" \ }
+" let g:tagbar_type_cpp = {
+    " \ 'kinds' : [
+        " \ 'd:macros:0:0',
+        " \ 'p:prototypes:0:0',
+        " \ 'g:enums',
+        " \ 'e:enumerators:0:0',
+        " \ 't:typedefs:0:0',
+        " \ 'n:namespaces',
+        " \ 'c:classes',
+        " \ 's:structs',
+        " \ 'u:unions',
+        " \ 'f:functions',
+        " \ 'm:members:0:0',
+        " \ 'v:variables:0:0',
+    " \ ],
+" \ }
 
 " DISABLE: minibufexpl makes Vim editing slow when there are too many buffers opened
 "          if you don't mind, and love this plugin, uncomment the script below
@@ -211,7 +211,7 @@ let g:tagbar_type_cpp = {
 
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
 " ---------------------------------------------------
-Plugin 'exvim/ex-showmarks'
+" Plugin 'exvim/ex-showmarks'
 
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots
 " bugs, consider merge his code and fixes the bugs
@@ -296,10 +296,10 @@ Plugin 'tpope/vim-fugitive'
 " ---------------------------------------------------
 Plugin 'tpope/vim-surround'
 
-xmap s <Plug>VSurround
+" xmap s <Plug>VSurround
 
 " DISABLE
-" " Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 " " ---------------------------------------------------
 
 " nerdtree: invoke by :NERDTreeToggle
@@ -381,6 +381,7 @@ let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_disable_for_files_larger_than_kb = 0
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_global_ycm_extra_conf = g:exvim_custom_path . '.ycm_extra_conf.py'
 nnoremap <F10> :YcmDiags<CR>
 " " ---------------------------------------------------
 
@@ -447,7 +448,7 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " LargeFile
 " ---------------------------------------------------
 Plugin 'vim-scripts/LargeFile'
-let g:LargeFile= 5 " files >= 5MB will use LargeFile rules
+let g:LargeFile= 1 " files >= 5MB will use LargeFile rules
 
 "}}}
 
@@ -461,7 +462,7 @@ let g:LargeFile= 5 " files >= 5MB will use LargeFile rules
 
 " ex-cref: invoke by <leader>cr
 " ---------------------------------------------------
-" Plugin 'exvim/ex-cref'
+Plugin 'exvim/ex-cref'
 
 " this is modified for default c syntax highlight settings
 " make it don't highlight error pattern
@@ -482,25 +483,31 @@ nnoremap <unique> <leader>w :StripWhitespace<CR>
 
 " emmet-vim
 " ---------------------------------------------------
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 
 " make sure emmet only enable in html,css files
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css EmmetInstall
 
 " vim-indent-guides: invoke by <leader>ig
 " ---------------------------------------------------
 Plugin 'nathanaelkane/vim-indent-guides'
 
 let g:indent_guides_guide_size = 1
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
 
 " vim-javascript
 " ---------------------------------------------------
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 
 " vim-coffee-script
 " ---------------------------------------------------
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 
 " vim-html
 " ---------------------------------------------------
@@ -513,18 +520,18 @@ Plugin 'kchmck/vim-coffee-script'
 " Plugin 'skammer/vim-css-color'
 
 " vim-css3-syntax
-Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'hail2u/vim-css3-syntax'
 
 " vim-jade
-Plugin 'digitaltoad/vim-jade'
+" Plugin 'digitaltoad/vim-jade'
 
 " vim-less
 " ---------------------------------------------------
-Plugin 'groenewege/vim-less'
+" Plugin 'groenewege/vim-less'
 
 " vim-stylus
 " ---------------------------------------------------
-Plugin 'wavded/vim-stylus'
+" Plugin 'wavded/vim-stylus'
 
 " vim-markdown
 " ---------------------------------------------------

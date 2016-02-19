@@ -55,14 +55,16 @@ let g:ctrlp_funky_syntax_highlight = 1
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'rking/ag.vim'
-Plugin 'dyng/ctrlsf.vim'
 Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 Plugin 'honza/vim-snippets'
 Plugin 'chrisbra/vim-diff-enhanced'
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 Plugin 'vim-scripts/stlrefvim'
 Plugin 'bruno-/vim-man'
-Plugin 'tpope/vim-dispatch'
+" Plugin 'dyng/ctrlsf.vim'
 nmap     <leader>ff <Plug>CtrlSFPrompt
 vmap     <leader>ff <Plug>CtrlSFVwordPath
 vmap     <leader>fF <Plug>CtrlSFVwordExec
@@ -76,3 +78,5 @@ let g:signify_vcs_list =  [ 'svn', 'git' ]
 Plugin 'vim-scripts/vcscommand.vim'
 Plugin 'tpope/vim-repeat.git'
 Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plugin 'Mizuchi/STL-Syntax'
+" Plugin 'benekastah/neomake'
