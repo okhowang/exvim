@@ -165,6 +165,11 @@ behave xterm  " set mouse behavior as xterm
 if &term =~ 'xterm'
     set mouse=a
 endif
+if &term =~ '^screen'
+    set mouse+=a
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 
 "/////////////////////////////////////////////////////////////////////////////
 " Variable settings ( set all )
