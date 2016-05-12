@@ -493,11 +493,9 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 " 色块宽度
 let g:indent_guides_guide_size=1
-" let g:indent_guides_guide_size = 1
 
 " Yggdroot/indentLine: invoke by <leader>ig
 " ---------------------------------------------------
-
 
 Plugin 'Yggdroot/indentLine'
 nnoremap <unique> <leader>ig :IndentLinesToggle<CR>

@@ -64,7 +64,7 @@ Plugin 'chrisbra/vim-diff-enhanced'
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 Plugin 'vim-scripts/stlrefvim'
 Plugin 'bruno-/vim-man'
-" Plugin 'dyng/ctrlsf.vim'
+Plugin 'dyng/ctrlsf.vim'
 nmap     <leader>ff <Plug>CtrlSFPrompt
 vmap     <leader>ff <Plug>CtrlSFVwordPath
 vmap     <leader>fF <Plug>CtrlSFVwordExec
