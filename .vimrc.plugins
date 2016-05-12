@@ -481,9 +481,10 @@ nnoremap <unique> <leader>w :StripWhitespace<CR>
 " let g:user_emmet_install_global = 0
 " autocmd FileType html,css EmmetInstall
 
-" vim-indent-guides: invoke by <leader>ig
-" ---------------------------------------------------
-Plugin 'nathanaelkane/vim-indent-guides'
+" DISABLE:
+" " vim-indent-guides: invoke by <leader>ig
+" " ---------------------------------------------------
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 let g:indent_guides_guide_size = 1
 " 随 vim 自启动
@@ -492,6 +493,16 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 " 色块宽度
 let g:indent_guides_guide_size=1
+" let g:indent_guides_guide_size = 1
+
+" Yggdroot/indentLine: invoke by <leader>ig
+" ---------------------------------------------------
+
+
+Plugin 'Yggdroot/indentLine'
+nnoremap <unique> <leader>ig :IndentLinesToggle<CR>
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_enabled = 0
 
 " vim-javascript
 " ---------------------------------------------------
