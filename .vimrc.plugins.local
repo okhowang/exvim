@@ -14,8 +14,8 @@ let GtagsCscope_Auto_Map = 1
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Keep_Alive = 1
 let GtagsCscope_Absolute_Path = 1
-source $HOME/local/global-6.5/share/gtags/gtags.vim
-source $HOME/local/global-6.5/share/gtags/gtags-cscope.vim
+source $HOME/local/global-6.5.5/share/gtags/gtags.vim
+source $HOME/local/global-6.5.5/share/gtags/gtags-cscope.vim
 " cs add ~/include/GTAGS ~/include
 " cs add ~/system_include/GTAGS ~/system_include
 
@@ -80,3 +80,6 @@ Plugin 'tpope/vim-repeat.git'
 Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plugin 'Mizuchi/STL-Syntax'
 " Plugin 'benekastah/neomake'
+Plugin 'jeaye/color_coded'
+let g:color_coded_enabled = 1
+let g:color_coded_filetypes = ['c', 'cpp', 'objc']

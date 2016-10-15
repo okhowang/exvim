@@ -309,6 +309,7 @@ Plugin 'scrooloose/nerdtree'
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>'
+let g:NERDTreeIgnore = ['\.pyc$', '\.pb\.cc$', '\.pb\.h$', '\.o$', '\.d$', '\.a$', '\.so$']
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 " ---------------------------------------------------
@@ -375,6 +376,10 @@ let g:ycm_disable_for_files_larger_than_kb = 0
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_global_ycm_extra_conf = g:exvim_custom_path . '.ycm_extra_conf.py'
 nnoremap <F10> :YcmDiags<CR>
+nnoremap <leader><F2> :lopen<CR>
+nnoremap <leader><F4> :lclose<CR>
+nnoremap <leader>p :lprev<CR>
+nnoremap <leader>n :lnext<CR>
 " " ---------------------------------------------------
 
 " TODO: choose a snippet plugin
