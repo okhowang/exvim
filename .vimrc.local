@@ -65,13 +65,14 @@ set cursorcolumn
 let g:clang_format_fallback_style="webkit"
 function FormatFile()
   let l:lines="all"
-  pyf ~/local/llvm-3.7.1/share/clang/clang-format.py
+  pyf ~/local/llvm-3.9.0/share/clang/clang-format.py
 endfunction
 map <leader>cff :call FormatFile()<cr>
-map <leader>cfl :pyf ~/local/llvm-3.7.1/share/clang/clang-format.py<cr>
+map <leader>cfl :pyf ~/local/llvm-3.9.0/share/clang/clang-format.py<cr>
 set sw=4
 set tabstop=4
 au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
-source ~/local/cmake-3.4.1/share/cmake-3.4/editors/vim/cmake-help.vim
+source ~/local/cmake-3.6.2/share/cmake-3.6/editors/vim/cmake-help.vim
 
 set relativenumber
+map <leader>cfi :YcmCompleter FixIt<cr>

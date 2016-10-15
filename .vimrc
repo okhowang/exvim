@@ -436,9 +436,8 @@ if &clipboard ==# 'unnamed'
 else
     " general copy/paste.
     " NOTE: y,p,P could be mapped by other key-mapping
-    map <leader>y "*y
-    map <leader>p "*p
-    map <leader>P "*P
+    " map <leader>y "*y
+    " map <leader>p "*p
 endif
 
 " copy folder path to clipboard, foo/bar/foobar.c => foo/bar/
