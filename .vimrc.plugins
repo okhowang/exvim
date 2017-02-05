@@ -5,7 +5,7 @@
 " com! -nargs=+ Bundle
 
 " man.vim: invoked by :Man {name}
-source $VIMRUNTIME/ftplugin/man.vim
+" source $VIMRUNTIME/ftplugin/man.vim
 
 " let Vundle manage Vundle, required
 " ---------------------------------------------------
@@ -17,7 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " ex-config:
 " ---------------------------------------------------
-Plugin 'exvim/ex-config'
+" Plugin 'exvim/ex-config'
 nnoremap <unique> <leader>ve :call exconfig#edit_cur_vimentry ()<CR>
 
 " ex-utility:
@@ -29,78 +29,78 @@ nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
 nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 nnoremap <unique> <silent> <Leader><Tab> :EXsw<CR>
-nmap <unique> <silent> <Leader><Esc> :EXgp<CR><ESC>
+" nmap <unique> <silent> <Leader><Esc> :EXgp<CR><ESC>
 
 " ex-aftercolor
 " ---------------------------------------------------
-Plugin 'exvim/ex-aftercolors'
+" Plugin 'exvim/ex-aftercolors'
 
 " ex-vimentry
 " ---------------------------------------------------
-Plugin 'exvim/ex-vimentry'
+" Plugin 'exvim/ex-vimentry'
 
 " ex-project
 " ---------------------------------------------------
-Plugin 'exvim/ex-project'
+" Plugin 'exvim/ex-project'
 
 " ex-gsearch
 " ---------------------------------------------------
-Plugin 'exvim/ex-gsearch'
+" Plugin 'exvim/ex-gsearch'
 
-call exgsearch#register_hotkey( 100, 0, '<leader>gs', ":EXGSearchToggle<CR>", 'Toggle global search window.' )
-call exgsearch#register_hotkey( 101, 0, '<leader>gg', ":EXGSearchCWord<CR>", 'Search current word.' )
-call exgsearch#register_hotkey( 102, 0, '<leader><S-f>', ":GS ", 'Shortcut for :GS' )
+" call exgsearch#register_hotkey( 100, 0, '<leader>gs', ":EXGSearchToggle<CR>", 'Toggle global search window.' )
+" call exgsearch#register_hotkey( 101, 0, '<leader>gg', ":EXGSearchCWord<CR>", 'Search current word.' )
+" call exgsearch#register_hotkey( 102, 0, '<leader><S-f>', ":GS ", 'Shortcut for :GS' )
 
 " ex-tagselect
 " ---------------------------------------------------
-Plugin 'exvim/ex-tags'
+" Plugin 'exvim/ex-tags'
 
-call extags#register_hotkey( 100, 0, '<leader>ts', ":EXTagsToggle<CR>", 'Toggle tag select window.' )
-call extags#register_hotkey( 101, 0, '<leader>]', ":EXTagsCWord<CR>", 'Tag select current word.' )
+" call extags#register_hotkey( 100, 0, '<leader>ts', ":EXTagsToggle<CR>", 'Toggle tag select window.' )
+" call extags#register_hotkey( 101, 0, '<leader>]', ":EXTagsCWord<CR>", 'Tag select current word.' )
 " DISABLE: nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
 " ex-symbol
 " ---------------------------------------------------
-Plugin 'exvim/ex-symbol'
+" Plugin 'exvim/ex-symbol'
 
-call exsymbol#register_hotkey( 100, 0, '<leader>ss', ":EXSymbolList<CR>", 'List all symbols.' )
-call exsymbol#register_hotkey( 101, 0, '<leader>sq', ":EXSymbolOpen<CR>", 'Open symbols window.' )
-call exsymbol#register_hotkey( 102, 0, '<leader>sg', ":EXSymbolCWord<CR>", 'List symbols contains current word.' )
+" call exsymbol#register_hotkey( 100, 0, '<leader>ss', ":EXSymbolList<CR>", 'List all symbols.' )
+" call exsymbol#register_hotkey( 101, 0, '<leader>sq', ":EXSymbolOpen<CR>", 'Open symbols window.' )
+" call exsymbol#register_hotkey( 102, 0, '<leader>sg', ":EXSymbolCWord<CR>", 'List symbols contains current word.' )
 
-if has('gui_running')
-    if has ('mac')
-        call exsymbol#register_hotkey( 102, 0, 'Ò', ":EXSymbolList<CR>:redraw<CR>/", 'List all symbols and stay in search mode.' )
-    else
-        call exsymbol#register_hotkey( 102, 0, '<M-L>', ":EXSymbolList<CR>:redraw<CR>/", 'List all symbols and stay in search mode.' )
-    endif
-endif
+" if has('gui_running')
+    " if has ('mac')
+        " call exsymbol#register_hotkey( 102, 0, 'Ò', ":EXSymbolList<CR>:redraw<CR>/", 'List all symbols and stay in search mode.' )
+    " else
+        " call exsymbol#register_hotkey( 102, 0, '<M-L>', ":EXSymbolList<CR>:redraw<CR>/", 'List all symbols and stay in search mode.' )
+    " endif
+" endif
 let g:ex_symbol_select_cmd = 'TS'
 
 " ex-cscope
 " ---------------------------------------------------
-Plugin 'exvim/ex-cscope'
+" Plugin 'exvim/ex-cscope'
 
-call excscope#register_hotkey( 100, 0, '<leader>cd', ":EXCSToggle<CR>", 'Toggle cscope window.' )
+" call excscope#register_hotkey( 100, 0, '<leader>cd', ":EXCSToggle<CR>", 'Toggle cscope window.' )
 
 " ex-qfix
 " ---------------------------------------------------
-Plugin 'exvim/ex-qfix'
+" Plugin 'exvim/ex-qfix'
 
-call exqfix#register_hotkey( 100, 0, '<leader>qf', ":EXQFixToggle<CR>", 'Toggle quickfix window.' )
-call exqfix#register_hotkey( 101, 0, '<leader>qq', ":EXQFixPaste<CR>", 'Open quickfix window and paste error list from register *.' )
+" call exqfix#register_hotkey( 100, 0, '<leader>qf', ":EXQFixToggle<CR>", 'Toggle quickfix window.' )
+" call exqfix#register_hotkey( 101, 0, '<leader>qq', ":EXQFixPaste<CR>", 'Open quickfix window and paste error list from register *.' )
 
 " ex-hierarchy
 " ---------------------------------------------------
-Plugin 'exvim/ex-hierarchy'
+" Plugin 'exvim/ex-hierarchy'
 
 nnoremap <unique> <leader>hv :EXHierarchyCWord<CR>
 
 " ex-taglist: invoke by <F4>
 " ---------------------------------------------------
-Plugin 'exvim/ex-taglist'
+" Plugin 'exvim/ex-taglist'
 
 " F4:  Switch on/off TagList
-nnoremap <unique> <silent> <F4> :TlistToggle<CR>
+" nnoremap <unique> <silent> <F4> :TlistToggle<CR>
 
 "let Tlist_Ctags_Cmd = $VIM.'/vimfiles/ctags.exe' " location of ctags tool
 let Tlist_Show_One_File = 1 " Displaying tags for only one file~
@@ -205,11 +205,11 @@ let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:va
 
 " ex-autocomplpop: invoke when you input text
 " ---------------------------------------------------
-Plugin 'exvim/ex-autocomplpop'
+" Plugin 'exvim/ex-autocomplpop'
 
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
 " ---------------------------------------------------
-Plugin 'exvim/ex-showmarks'
+" Plugin 'exvim/ex-showmarks'
 
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots
 " bugs, consider merge his code and fixes the bugs
@@ -222,23 +222,23 @@ let g:showmarks_hlline_upper = 0
 
 " ex-visincr: invoke when select text and type ':II'
 " ---------------------------------------------------
-Plugin 'exvim/ex-visincr'
+" Plugin 'exvim/ex-visincr'
 
 " ex-matchit: invoke by %
 " ---------------------------------------------------
-Plugin 'exvim/ex-matchit'
+" Plugin 'exvim/ex-matchit'
 
 " ex-easyhl:
 " ---------------------------------------------------
-Plugin 'exvim/ex-easyhl'
+" Plugin 'exvim/ex-easyhl'
 
 " searchcompl: invoke by /
 " ---------------------------------------------------
-Plugin 'exvim/ex-searchcompl'
+" Plugin 'exvim/ex-searchcompl'
 
 " ex-colorschemes
 " ---------------------------------------------------
-Plugin 'exvim/ex-colorschemes'
+" Plugin 'exvim/ex-colorschemes'
 
 " vim-color-solarized
 " ---------------------------------------------------
@@ -275,10 +275,13 @@ Plugin 'morhetz/gruvbox'
 
 " ctrlp: invoke by <ctrl-p>
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_map = '<F12>'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_follow_symlinks = 2
 let g:ctrlp_max_files = 0 " Unset cap of 10,000 files so we find everything
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 nnoremap <unique> <leader>bs :CtrlPBuffer<CR>
 
 " vim-fugitive: invoke most by :Gdiff
@@ -289,7 +292,7 @@ Plugin 'tpope/vim-fugitive'
 " ---------------------------------------------------
 Plugin 'tpope/vim-surround'
 
-xmap s <Plug>VSurround
+" xmap s <Plug>VSurround
 
 " DISABLE
 " " Plugin 'tpope/vim-dispatch'
@@ -302,6 +305,7 @@ Plugin 'scrooloose/nerdtree'
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>'
+let g:NERDTreeIgnore = ['\.pyc$', '\.pb\.cc$', '\.pb\.h$', '\.o$', '\.d$', '\.a$', '\.so$']
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 " ---------------------------------------------------
@@ -312,8 +316,8 @@ let g:NERDRemoveExtraSpaces = 1
 let g:NERDCustomDelimiters = {
             \ 'vimentry': { 'left': '--' },
             \ }
-map <unique> <F11> <Plug>NERDCommenterAlignBoth
-map <unique> <C-F11> <Plug>NERDCommenterUncomment
+" map <unique> <F11> <Plug>NERDCommenterAlignBoth
+" map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
 " syntastic: invoke when you save file and have syntac-checker
 " ---------------------------------------------------
@@ -451,11 +455,11 @@ nnoremap <unique> <leader>w :StripWhitespace<CR>
 
 " ex-typescript
 " ---------------------------------------------------
-Plugin 'exvim/ex-typescript'
+" Plugin 'exvim/ex-typescript'
 
 " emmet-vim
 " ---------------------------------------------------
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 
 " make sure emmet only enable in html,css files
 let g:user_emmet_install_global = 0
@@ -477,15 +481,15 @@ let g:indentLine_enabled = 0
 
 " vim-javascript
 " ---------------------------------------------------
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 
 " vim-coffee-script
 " ---------------------------------------------------
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 
 " vim-html
 " ---------------------------------------------------
-Plugin 'exvim/ex-indenthtml.vim'
+" Plugin 'exvim/ex-indenthtml.vim'
 
 
 " DISABLE: Slow to open big css file
@@ -494,18 +498,18 @@ Plugin 'exvim/ex-indenthtml.vim'
 " Plugin 'skammer/vim-css-color'
 
 " vim-css3-syntax
-Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'hail2u/vim-css3-syntax'
 
 " vim-jade
-Plugin 'digitaltoad/vim-jade'
+" Plugin 'digitaltoad/vim-jade'
 
 " vim-less
 " ---------------------------------------------------
-Plugin 'groenewege/vim-less'
+" Plugin 'groenewege/vim-less'
 
 " vim-stylus
 " ---------------------------------------------------
-Plugin 'wavded/vim-stylus'
+" Plugin 'wavded/vim-stylus'
 
 " vim-markdown
 " ---------------------------------------------------

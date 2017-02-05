@@ -1,2 +1,34 @@
 " This file will be loaded at the end of .vimrc.
 " This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
+set fileencodings=ucs-bom,utf-8-bom,utf-8,cp936,gbk,big5,gb18030,ucs,euc-jp,euc-kr,latin1
+set wrap
+set linebreak
+set nolist
+
+set foldmethod=syntax
+set diffexpr=
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+set grepprg=ag\ --nogroup\ --nocolor
+
+set mouse=a
+
+nnoremap <S-k> :Man <C-R>=expand("<cword>")<CR><CR>
+
+set cursorline
+set cursorcolumn
+
+set sw=4
+set tabstop=4
+set relativenumber
+
+au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
+
+let g:clang_format_fallback_style="webkit"
+function FormatFile()
+  let l:lines="all"
+  pyf ~/.linuxbrew/opt/llvm/share/clang/clang-format.py
+endfunction
+map <leader>cff :call FormatFile()<cr>
+map <leader>cfl :pyf ~/.linuxbrew/opt/llvm/share/clang/clang-format.py<cr>
+map <leader>cfi :YcmCompleter FixIt<cr>

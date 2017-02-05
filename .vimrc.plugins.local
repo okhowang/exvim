@@ -4,3 +4,124 @@
 
 " Add your customized plugins:
 " Example: Plugin 'foo/bar/foobar'
+Plugin 'majutsushi/tagbar'
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+Plugin 'bling/vim-airline'
+
+if has('gui_running')
+    let g:airline_powerline_fonts = 1
+else
+    let g:airline_powerline_fonts = 0
+endif
+
+let g:airline#extensions#tabline#enabled = 1 " NOTE: When you open lots of buffers and typing text, it is so slow.
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#fnamecollapse = 0
+
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_confirm_extra_conf = 0
+let g:syntastic_warning_symbol = '??'
+let g:ycm_always_populate_location_list = 0
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_max_diagnostics_to_display = 100
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:ycm_disable_for_files_larger_than_kb = 0
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_global_ycm_extra_conf = g:exvim_custom_path . 'vimfiles/bundle/YCM-Generator/template.py'
+let g:ycm_extra_conf_vim_data = ['&filetype']
+let g:ycm_server_python_interpreter = 'python'
+nnoremap <F10> :YcmDiags<CR>
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+Plugin 'vim-scripts/a.vim'
+
+Plugin 'whatot/gtags-cscope.vim'
+let Gtags_Auto_Map = 1
+let Gtags_Auto_Update = 1
+let Gtags_No_Auto_Jump = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Keep_Alive = 1
+let GtagsCscope_Absolute_Path = 1
+nnoremap <leader><F2> :lopen<CR>
+nnoremap <leader><F4> :lclose<CR>
+nnoremap <leader>p :lprev<CR>
+nnoremap <leader>n :lnext<CR>
+
+" Plugin 'mbbill/echofunc'
+Plugin 'mbbill/fencview'
+Plugin 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+" Plugin 'yonchu/accelerated-smooth-scroll'
+let g:ac_smooth_scroll_du_sleep_time_msec = 1
+let g:ac_smooth_scroll_fb_sleep_time_msec = 1
+Plugin 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_exit_from_visual_mode = 0
+" let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_start_key='<C-k>'
+let g:multi_cursor_next_key='<C-j>'
+let g:multi_cursor_prev_key='<C-k>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tacahiroy/ctrlp-funky'
+nnoremap <F11> :CtrlPFunky<CR>
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'rking/ag.vim'
+
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+Plugin 'honza/vim-snippets'
+Plugin 'chrisbra/vim-diff-enhanced'
+let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+Plugin 'vim-scripts/stlrefvim'
+Plugin 'vim-utils/vim-man'
+
+Plugin 'dyng/ctrlsf.vim'
+nmap     <leader>ff <Plug>CtrlSFPrompt
+vmap     <leader>ff <Plug>CtrlSFVwordPath
+vmap     <leader>fF <Plug>CtrlSFVwordExec
+nmap     <leader>fn <Plug>CtrlSFCwordPath
+nmap     <leader>fp <Plug>CtrlSFPwordPath
+nnoremap <leader>fo :CtrlSFOpen<CR>
+nnoremap <leader>ft :CtrlSFToggle<CR>
+inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
+
+Bundle 'mhinz/vim-signify'
+let g:signify_vcs_list =  [ 'svn', 'git' ]
+Plugin 'vim-scripts/vcscommand.vim'
+Plugin 'tpope/vim-repeat.git'
+Plugin 'wangpeiwen/YCM-Generator', { 'branch': 'stable'}
+Plugin 'Mizuchi/STL-Syntax'
+" Plugin 'benekastah/neomake'
+if !has('nvim')
+    Plugin 'jeaye/color_coded'
+    let g:color_coded_enabled = 1
+    let g:color_coded_filetypes = ['c', 'cpp', 'objc']
+    Plugin 'NigoroJr/color_coded-colorschemes'
+endif
+if has('nvim')
+    Plugin 'arakashic/chromatica.nvim'
+    let g:chromatica#libclang_path="/home/okhowang/.linuxbrew/opt/llvm/lib"
+    let g:chromatica#enable_at_startup=1
+    let g:chromatica#highlight_feature_level=1
+    let g:chromatica#responsive_mode=1
+    let g:chromatica#delay_ms = 500
+endif
+Plugin 'will133/vim-dirdiff'
+Plugin 'xu-cheng/brew.vim'
+Plugin 'pboettch/vim-cmake-syntax'
