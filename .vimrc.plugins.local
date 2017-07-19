@@ -109,18 +109,21 @@ Plugin 'wangpeiwen/YCM-Generator', { 'branch': 'stable'}
 Plugin 'Mizuchi/STL-Syntax'
 " Plugin 'benekastah/neomake'
 if !has('nvim')
-    Plugin 'jeaye/color_coded'
-    let g:color_coded_enabled = 1
-    let g:color_coded_filetypes = ['c', 'cpp', 'objc']
-    Plugin 'NigoroJr/color_coded-colorschemes'
+    " Plugin 'jeaye/color_coded'
+    " Plugin 'bbchung/clighter8'
+    " let g:color_coded_enabled = 1
+    " let g:color_coded_filetypes = ['c', 'cpp', 'objc']
+    " Plugin 'NigoroJr/color_coded-colorschemes'
 endif
 if has('nvim')
-    Plugin 'arakashic/chromatica.nvim'
-    let g:chromatica#libclang_path="/home/okhowang/.linuxbrew/opt/llvm/lib"
-    let g:chromatica#enable_at_startup=1
-    let g:chromatica#highlight_feature_level=1
-    let g:chromatica#responsive_mode=1
-    let g:chromatica#delay_ms = 500
+    " Plugin 'bbchung/Clamp'
+    " let g:clamp_libclang_file = $HOME . '/.linuxbrew/opt/llvm/lib/libclang.so'
+    " Plugin 'arakashic/chromatica.nvim'
+    " let g:chromatica#libclang_path="/home/okhowang/.linuxbrew/opt/llvm/lib"
+    " let g:chromatica#enable_at_startup=1
+    " let g:chromatica#highlight_feature_level=1
+    " let g:chromatica#responsive_mode=1
+    " let g:chromatica#delay_ms = 500
 endif
 Plugin 'will133/vim-dirdiff'
 Plugin 'xu-cheng/brew.vim'

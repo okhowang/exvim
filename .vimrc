@@ -129,11 +129,13 @@ colorscheme solarized
 
 "set path=.,/usr/include/*,, " where gf, ^Wf, :find will search
 set backup " make backup file and leave it around
+set undofile
 
 " setup back and swap directory
 let data_dir = $HOME.'/.data/'
 let backup_dir = data_dir . 'backup'
 let swap_dir = data_dir . 'swap'
+let undo_dir = data_dir . 'undo'
 if finddir(data_dir) == ''
     silent call mkdir(data_dir)
 endif
@@ -143,12 +145,17 @@ endif
 if finddir(swap_dir) == ''
     silent call mkdir(swap_dir)
 endif
+if finddir(undo_dir) == ''
+    silent call mkdir(undo_dir)
+endif
 unlet backup_dir
 unlet swap_dir
 unlet data_dir
+unlet undo_dir
 
 set backupdir=$HOME/.data/backup " where to put backup file
 set directory=$HOME/.data/swap " where to put swap file
+set undodir=$HOME/.data/undo
 
 " Redefine the shell redirection operator to receive both the stderr messages and stdout messages
 set shellredir=>%s\ 2>&1
