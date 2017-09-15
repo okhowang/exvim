@@ -131,3 +131,5 @@ endif
 Plugin 'will133/vim-dirdiff'
 Plugin 'xu-cheng/brew.vim'
 Plugin 'pboettch/vim-cmake-syntax'
+Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
