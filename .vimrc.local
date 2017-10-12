@@ -54,3 +54,4 @@ function! OpenCmakeHelp()
 endfunction
 
 autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in nmap <F1> :call OpenCmakeHelp()<CR>
+autocmd BufNewFile,BufRead *.gyp set filetype=json
