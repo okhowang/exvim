@@ -57,3 +57,4 @@ autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in nmap <F1> :call Ope
 autocmd BufNewFile,BufRead *.gyp set filetype=json
 
 let g:load_doxygen_syntax=1
+set guicursor=
