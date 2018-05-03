@@ -9,6 +9,8 @@ import subprocess
 BASE_FLAGS = [
         '-Wall',
         '-Wextra',
+        '-Wno-deprecated-register',
+        '-Wno-invalid-source-encoding',
         ]
 
 SOURCE_EXTENSIONS = [
@@ -38,9 +40,10 @@ HEADER_DIRECTORIES = [
 
 def GetDefaultPathFlags(language):
     echo = subprocess.Popen(["echo"], stdout=subprocess.PIPE)
-    compiler = subprocess.Popen(["clang", "-v", "-E", "-x", language, "-"], stdin=echo.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    compiler = subprocess.Popen(["clang", "-v", "-E", "-x", language, "-stdlib=libstdc++", "--gcc-toolchain=/usr", "-"], stdin=echo.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     echo.stdout.close()
     output = compiler.communicate()[1].split('\n')
+    print(output)
 
     begin = False
     end = False
@@ -58,6 +61,8 @@ def GetDefaultPathFlags(language):
 
 default_cxx_path_flags = GetDefaultPathFlags("c++")
 default_c_path_flags = GetDefaultPathFlags("c")
+print(default_c_path_flags)
+print(default_cxx_path_flags)
 
 def IsHeaderFile(filename):
     extension = os.path.splitext(filename)[1]
@@ -177,6 +182,7 @@ def FlagsForFile(filename, **kwargs):
     compilation_db_flags = FlagsForCompilationDatabase(root, filename)
     if compilation_db_flags:
         final_flags = compilation_db_flags
+        final_flags.extend(BASE_FLAGS)
     else:
         final_flags = BASE_FLAGS
         clang_flags = FlagsForClangComplete(root)

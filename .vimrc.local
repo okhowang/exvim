@@ -5,11 +5,11 @@ set wrap
 set linebreak
 set nolist
 
-set foldmethod=syntax
 set diffexpr=
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
-set grepprg=ag\ --nogroup\ --nocolor
+set grepprg=rg\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
 
 set mouse=a
 
@@ -27,10 +27,10 @@ au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
 let g:clang_format_fallback_style="webkit"
 function FormatFile()
   let l:lines="all"
-  pyf ~/.linuxbrew/opt/llvm/share/clang/clang-format.py
+  pyxf ~/.linuxbrew/opt/llvm/share/clang/clang-format.py
 endfunction
 map <leader>cff :call FormatFile()<cr>
-map <leader>cfl :pyf ~/.linuxbrew/opt/llvm/share/clang/clang-format.py<cr>
+map <leader>cfl :pyxf ~/.linuxbrew/opt/llvm/share/clang/clang-format.py<cr>
 map <leader>cfi :YcmCompleter FixIt<cr>
 
 nmap ,hc :call OpenCmakeHelp()<CR>
@@ -55,3 +55,5 @@ endfunction
 
 autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in nmap <F1> :call OpenCmakeHelp()<CR>
 autocmd BufNewFile,BufRead *.gyp set filetype=json
+
+let g:load_doxygen_syntax=1

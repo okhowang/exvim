@@ -75,38 +75,17 @@ scriptencoding utf-8
 " Bundle steup
 "/////////////////////////////////////////////////////////////////////////////
 
-" vundle#begin
-filetype off " required
-
-" set the runtime path to include Vundle
-if exists('g:exvim_custom_path')
-    let g:ex_tools_path = g:exvim_custom_path.'/vimfiles/tools/'
-    exec 'set rtp+=' . fnameescape ( g:exvim_custom_path.'/vimfiles/bundle/Vundle.vim/' )
-    call vundle#rc(g:exvim_custom_path.'/vimfiles/bundle/')
-else
-    let g:ex_tools_path = '~/.vim/tools/'
-    set rtp+=~/.vim/bundle/Vundle.vim/
-    call vundle#rc('~/.vim/bundle/')
-endif
-
+call plug#begin('~/.vim/plugged')
 " load .vimrc.plugins & .vimrc.plugins.local
-if exists('g:exvim_custom_path')
-    let vimrc_plugins_path = g:exvim_custom_path.'/.vimrc.plugins'
-    let vimrc_plugins_local_path = g:exvim_custom_path.'/.vimrc.plugins.local'
-else
-    let vimrc_plugins_path = '~/.vimrc.plugins'
-    let vimrc_plugins_local_path = '~/.vimrc.plugins.local'
-endif
+let vimrc_plugins_path = '~/.vim/.vimrc.plugins'
+let vimrc_plugins_local_path = '~/.vim/.vimrc.plugins.local'
 if filereadable(expand(vimrc_plugins_path))
     exec 'source ' . fnameescape(vimrc_plugins_path)
 endif
 if filereadable(expand(vimrc_plugins_local_path))
     exec 'source ' . fnameescape(vimrc_plugins_local_path)
 endif
-
-" vundle#end
-filetype plugin indent on " required
-syntax on " required
+call plug#end()
 
 "/////////////////////////////////////////////////////////////////////////////
 " Default colorscheme setup
@@ -314,7 +293,7 @@ set nf=
 " Desc: Fold text
 " ------------------------------------------------------------------
 
-set foldmethod=marker foldmarker={,} foldlevel=9999
+set foldmethod=syntax
 set diffopt=filler,context:9999
 
 " ------------------------------------------------------------------
@@ -373,6 +352,7 @@ if has('autocmd')
         au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
         " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
+        au FileType c,cpp if line('$') > 2000 | set foldmethod=marker foldmarker={,} foldlevel=9999 | endif
         au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f://
         au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f://
         au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
@@ -439,7 +419,7 @@ else
     " general copy/paste.
     " NOTE: y,p,P could be mapped by other key-mapping
     map <leader>y "*y
-    map <leader>p "*p
+    " map <leader>p "*p
     map <leader>P "*P
 endif
 
@@ -500,10 +480,7 @@ nnoremap <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o
 " local setup
 "/////////////////////////////////////////////////////////////////////////////
 
-let vimrc_local_path = '~/.vimrc.local'
-if exists('g:exvim_custom_path')
-    let vimrc_local_path = g:exvim_custom_path.'/.vimrc.local'
-endif
+let vimrc_local_path = '~/.vim/.vimrc.local'
 
 if filereadable(expand(vimrc_local_path))
     exec 'source ' . fnameescape(vimrc_local_path)

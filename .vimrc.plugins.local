@@ -4,16 +4,25 @@
 
 " Add your customized plugins:
 " Example: Plugin 'foo/bar/foobar'
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
+ let g:tagbar_type_rust = {
+     \ 'ctagstype' : 'rust',
+     \ 'kinds' : [
+         \'T:types,type definitions',
+         \'f:functions,function definitions',
+         \'g:enum,enumeration names',
+         \'s:structure names',
+         \'m:modules,module names',
+         \'c:consts,static constants',
+         \'t:traits',
+         \'i:impls,trait implementations',
+     \]
+     \}
 
-Plugin 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 
-if has('gui_running')
-    let g:airline_powerline_fonts = 1
-else
-    let g:airline_powerline_fonts = 0
-endif
+let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1 " NOTE: When you open lots of buffers and typing text, it is so slow.
 let g:airline#extensions#tabline#show_buffers = 1
@@ -22,12 +31,14 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#fnamecollapse = 0
 
-Plugin 'Valloric/YouCompleteMe'
+if 1
+Plug 'davits/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_warning_symbol = '??'
 let g:ycm_always_populate_location_list = 0
-let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_show_diagnostics_ui = 1
 let g:ycm_max_diagnostics_to_display = 10000
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
@@ -36,36 +47,93 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = g:exvim_custom_path . '.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_server_python_interpreter = 'python'
+let g:ycm_disable_for_files_larger_than_kb = 0
+let g:ycm_rust_src_path = '/home/okhowang/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 nnoremap <F10> :YcmDiags<CR>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+Plug 'davits/DyeVim'
+let g:dyevim_timeout = 50
 
-Plugin 'vim-scripts/a.vim'
+else
 
-Plugin 'whatot/gtags-cscope.vim'
-let Gtags_Auto_Map = 1
-let Gtags_Auto_Update = 1
-let Gtags_No_Auto_Jump = 1
-let GtagsCscope_Auto_Map = 1
-let GtagsCscope_Auto_Load = 1
-let GtagsCscope_Keep_Alive = 1
-let GtagsCscope_Absolute_Path = 1
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+let g:LanguageClient_serverCommands = {
+            \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+            \ 'cpp': ['/home/okhowang/local/cquery/bin/cquery', '--language-server', '--log-file=/tmp/cq.log']
+            \ }
+let g:LanguageClient_loadSettings = 1
+" set completefunc=LanguageClient#complete
+set formatexpr=LanguageClient_textDocument_rangeFormatting()
+" " Use an absolute configuration path if you want system-wide settings
+let g:LanguageClient_settingsPath = '/home/okhowang/.vim/settings.json'
+" let g:LanguageClient_trace = 'verbose'
+" let g:LanguageClient_windowLogMessageLevel = 'Log'
+" let g:LanguageClient_loggingLevel = 'DEBUG'
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" (Optional) Multi-entry selection UI.
+" Plug 'junegunn/fzf'
+
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#complete_method = 'omnifunc'
+endif
+
+Plug 'w0rp/ale'
+let g:ale_emit_conflict_warnings = 0
+let g:ale_linters = {
+            \'c':[],'cpp':[],'java':[],
+            \'python':[],
+            \'rust':['cargo', 'rls', 'rustc'],
+            \'go':['gometalinter']}
+let g:ale_go_gometalinter_options = '--enable-all'
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = '??'
+let g:ale_sign_info = '--'
+let g:ale_sign_style_error = 's!'
+let g:ale_sign_style_warning = 's?'
+
+Plug 'vim-scripts/a.vim'
+
+Plug 'whatot/gtags-cscope.vim'
+let g:Gtags_Auto_Map = 0
+let g:Gtags_Auto_Update = 1
+let g:Gtags_No_Auto_Jump = 1
+let g:GtagsCscope_Auto_Map = 1
+let g:GtagsCscope_Auto_Load = 1
+let g:GtagsCscope_Keep_Alive = 1
+let g:GtagsCscope_Absolute_Path = 1
+nmap <C-n> :cn<CR>
+nmap <C-p> :cp<CR>
+nmap <C-\><C-]> :GtagsCursor<CR>
 nnoremap <leader><F2> :lopen<CR>
 nnoremap <leader><F4> :lclose<CR>
 nnoremap <leader>p :lprev<CR>
 nnoremap <leader>n :lnext<CR>
 
 " Plugin 'mbbill/echofunc'
-Plugin 'mbbill/fencview'
-Plugin 'Valloric/ListToggle'
+Plug 'mbbill/fencview'
+Plug 'Valloric/ListToggle'
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 " Plugin 'yonchu/accelerated-smooth-scroll'
 let g:ac_smooth_scroll_du_sleep_time_msec = 1
 let g:ac_smooth_scroll_fb_sleep_time_msec = 1
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 " let g:multi_cursor_exit_from_visual_mode = 0
 " let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_use_default_mapping=0
@@ -74,27 +142,26 @@ let g:multi_cursor_next_key='<C-j>'
 let g:multi_cursor_prev_key='<C-k>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tacahiroy/ctrlp-funky'
+Plug 'Raimondi/delimitMate'
+Plug 'tacahiroy/ctrlp-funky'
 nnoremap <F11> :CtrlPFunky<CR>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'rking/ag.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
 
-Plugin 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-Plugin 'honza/vim-snippets'
-Plugin 'chrisbra/vim-diff-enhanced'
+Plug 'honza/vim-snippets'
+Plug 'chrisbra/vim-diff-enhanced'
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
-Plugin 'vim-scripts/stlrefvim'
-Plugin 'vim-utils/vim-man'
+Plug 'vim-scripts/stlrefvim', {'for':'cpp'}
+Plug 'vim-utils/vim-man'
 
-Plugin 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
 nmap     <leader>ff <Plug>CtrlSFPrompt
 vmap     <leader>ff <Plug>CtrlSFVwordPath
 vmap     <leader>fF <Plug>CtrlSFVwordExec
@@ -104,32 +171,32 @@ nnoremap <leader>fo :CtrlSFOpen<CR>
 nnoremap <leader>ft :CtrlSFToggle<CR>
 inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
 
-Bundle 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 let g:signify_vcs_list =  [ 'svn', 'git' ]
-Plugin 'vim-scripts/vcscommand.vim'
-Plugin 'tpope/vim-repeat.git'
-Plugin 'wangpeiwen/YCM-Generator', { 'branch': 'stable'}
-Plugin 'Mizuchi/STL-Syntax'
+Plug 'vim-scripts/vcscommand.vim'
+let g:VCSCommandMapPrefix = '<leader>v'
+Plug 'tpope/vim-repeat'
+" Plug 'Mizuchi/STL-Syntax', {'for':'cpp'}
 " Plugin 'benekastah/neomake'
-if !has('nvim')
-    " Plugin 'jeaye/color_coded'
-    " Plugin 'bbchung/clighter8'
-    " let g:color_coded_enabled = 1
-    " let g:color_coded_filetypes = ['c', 'cpp', 'objc']
-    " Plugin 'NigoroJr/color_coded-colorschemes'
-endif
-if has('nvim')
-    " Plugin 'bbchung/Clamp'
-    " let g:clamp_libclang_file = $HOME . '/.linuxbrew/opt/llvm/lib/libclang.so'
-    " Plugin 'arakashic/chromatica.nvim'
-    " let g:chromatica#libclang_path="/home/okhowang/.linuxbrew/opt/llvm/lib"
-    " let g:chromatica#enable_at_startup=1
-    " let g:chromatica#highlight_feature_level=1
-    " let g:chromatica#responsive_mode=1
-    " let g:chromatica#delay_ms = 500
-endif
-Plugin 'will133/vim-dirdiff'
-Plugin 'xu-cheng/brew.vim'
-Plugin 'pboettch/vim-cmake-syntax'
-Plugin 'fatih/vim-go'
-Plugin 'leafgarland/typescript-vim'
+Plug 'will133/vim-dirdiff'
+Plug 'xu-cheng/brew.vim', {'for':'rb'}
+Plug 'pboettch/vim-cmake-syntax', {'for':'cmake'}
+Plug 'fatih/vim-go', {'for':'go'}
+let g:go_fmt_options = {
+            \ 'gofmt': '-s'
+            \ }
+let g:go_fmt_fail_silently = 1
+let g:go_list_type = 'quickfix'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+Plug 'rust-lang/rust.vim', {'for':'rust'}
+Plug 'leafgarland/typescript-vim', {'for':'typescript'}
+Plug 'pangloss/vim-javascript', {'for':'javascript'}
+Plug 'vim-ruby/vim-ruby', {'for':'ruby'}
+Plug 'StanAngeloff/php.vim', {'for':'php'}
+Plug 'rayburgemeestre/phpfolding.vim', {'for':'php'}
+Plug 'tfnico/vim-gradle'
+Plug 'lfv89/vim-interestingwords'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
