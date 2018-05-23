@@ -8,8 +8,13 @@ set nolist
 set diffexpr=
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
-set grepprg=rg\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
+elseif executable("ag")
+    set grepprg=ag\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
+endif
 
 set mouse=a
 

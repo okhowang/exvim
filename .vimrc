@@ -307,8 +307,6 @@ set ignorecase " set search/replace pattern to ignore case
 set smartcase " set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
 
 " set this to use id-utils for global search
-set grepprg=lid\ -Rgrep\ -s
-set grepformat=%f:%l:%m
 
 "/////////////////////////////////////////////////////////////////////////////
 " Auto Command
