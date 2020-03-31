@@ -38,6 +38,7 @@ HEADER_DIRECTORIES = [
         'include'
         ]
 
+# for get default path flag, may useful in linux platform
 def GetDefaultPathFlags(language):
     echo = subprocess.Popen(["echo"], stdout=subprocess.PIPE)
     compiler = subprocess.Popen(["clang", "-v", "-E", "-x", language, "-stdlib=libstdc++", "--gcc-toolchain=/usr", "-"], stdin=echo.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -58,11 +59,6 @@ def GetDefaultPathFlags(language):
         else:
             end = True
     return paths
-
-default_cxx_path_flags = GetDefaultPathFlags("c++")
-default_c_path_flags = GetDefaultPathFlags("c")
-print(default_c_path_flags)
-print(default_cxx_path_flags)
 
 def IsHeaderFile(filename):
     extension = os.path.splitext(filename)[1]
@@ -177,7 +173,8 @@ def FlagsForCompilationDatabase(root, filename):
     except:
         return None
 
-def FlagsForFile(filename, **kwargs):
+def Settings(**kwargs):
+    filename = kwargs['filename']
     root = os.path.realpath(filename);
     compilation_db_flags = FlagsForCompilationDatabase(root, filename)
     if compilation_db_flags:
@@ -199,10 +196,12 @@ def FlagsForFile(filename, **kwargs):
         filetype = 'c++'
     if filetype == 'c':
         final_flags.extend(['-x', 'c'])
-        final_flags.extend(default_c_path_flags)
     elif filetype == 'cpp':
         final_flags.extend(['-x', 'c++'])
-        final_flags.extend(default_cxx_path_flags)
+    elif filetype == 'objc':
+        final_flags.extend(['-x', 'objective-c'])
+    elif filetype == 'objcpp':
+        final_flags.extend(['-x', 'objective-c++'])
 
     return {
             'flags': final_flags,
